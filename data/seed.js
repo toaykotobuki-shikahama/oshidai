@@ -1,0 +1,370 @@
+window.OSHIDAI_SEED = {
+  "machines": [
+    {
+      "id": "m-yoshimune-2003",
+      "name": "吉宗",
+      "display": "吉宗（初代・4号機）",
+      "type": "slot",
+      "maker": "大都技研",
+      "series": "吉宗",
+      "era": "2003年",
+      "spec": "4号機",
+      "source": "https://apps.apple.com/jp/app/id1436019958",
+      "status": "active",
+      "createdAt": "2026-10-16T00:00:00.000Z",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "m-monkey-2011",
+      "name": "パチスロ「モンキーターン」",
+      "display": "パチスロ モンキーターン（初代）",
+      "type": "slot",
+      "maker": "山佐",
+      "series": "モンキーターン",
+      "era": "2011年3月",
+      "spec": "5号機・ART",
+      "source": "https://yamasa-next.co.jp/model_mkt/",
+      "status": "active",
+      "createdAt": "2026-10-16T00:00:00.000Z",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "m-fuyu2-2008",
+      "name": "ぱちんこ 冬のソナタ2",
+      "display": "冬のソナタ2",
+      "type": "pachinko",
+      "maker": "京楽産業．",
+      "series": "冬のソナタ",
+      "era": "2008年",
+      "spec": "",
+      "source": "https://www.kyoraku.co.jp/lineup/year/2008",
+      "status": "active",
+      "createdAt": "2026-10-16T00:00:00.000Z",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "m-fuyu2sweet-2008",
+      "name": "ぱちんこ 冬のソナタ2 Sweet Version",
+      "display": "冬のソナタ2 Sweet Version",
+      "type": "pachinko",
+      "maker": "京楽産業．",
+      "series": "冬のソナタ",
+      "era": "2008年",
+      "spec": "Sweet Version",
+      "source": "https://www.kyoraku.co.jp/lineup/year/2008",
+      "status": "active",
+      "createdAt": "2026-10-16T00:00:00.000Z",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "m-fuyufinal-2013",
+      "name": "ぱちんこ 冬のソナタ Final",
+      "display": "冬のソナタ Final",
+      "type": "pachinko",
+      "maker": "京楽産業．",
+      "series": "冬のソナタ",
+      "era": "2013年",
+      "spec": "",
+      "source": "https://www.kyoraku.co.jp/lineup/2013/fuyusonafinal/",
+      "status": "active",
+      "createdAt": "2026-10-16T00:00:00.000Z",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "m-fuyumemory-2025",
+      "name": "P 冬のソナタ My Memory",
+      "display": "P 冬のソナタ My Memory",
+      "type": "pachinko",
+      "maker": "京楽産業．",
+      "series": "冬のソナタ",
+      "era": "2025年",
+      "spec": "",
+      "source": "https://www.kyoraku.co.jp/lineup/year/2025",
+      "status": "active",
+      "createdAt": "2026-10-16T00:00:00.000Z",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "m-fuyumemorysweet-2025",
+      "name": "P 冬のソナタ My Memory SWEET Version",
+      "display": "P 冬のソナタ My Memory SWEET Version",
+      "type": "pachinko",
+      "maker": "京楽産業．",
+      "series": "冬のソナタ",
+      "era": "2025年",
+      "spec": "SWEET Version",
+      "source": "https://www.kyoraku.co.jp/lineup/year/2025",
+      "status": "active",
+      "createdAt": "2026-10-16T00:00:00.000Z",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "m-azurlane-slot-2025",
+      "name": "L アズールレーン THE ANIMATION",
+      "display": "L アズールレーン THE ANIMATION",
+      "type": "slot",
+      "maker": "京楽産業．",
+      "series": "アズールレーン",
+      "era": "2025年",
+      "spec": "スマスロ",
+      "source": "https://www.kyoraku.co.jp/lineup/year/2025",
+      "status": "active",
+      "createdAt": "2026-10-16T00:00:00.000Z",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "m-yoshimune-rising",
+      "name": "吉宗RISING",
+      "display": "吉宗RISING",
+      "type": "slot",
+      "maker": "大都技研",
+      "series": "吉宗",
+      "era": "",
+      "spec": "スマスロ",
+      "source": "https://www.daitogiken.com/contents/product/slot/yoshimunerising/",
+      "status": "active",
+      "createdAt": "2026-10-16T00:00:00.000Z",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "m-monkey4-2020",
+      "name": "パチスロ モンキーターンIV",
+      "display": "パチスロ モンキーターンIV",
+      "type": "slot",
+      "maker": "山佐",
+      "series": "モンキーターン",
+      "era": "2020年5月",
+      "spec": "AT",
+      "source": "https://yamasa-next.co.jp/model_mkt4/",
+      "status": "active",
+      "createdAt": "2026-10-16T00:00:00.000Z",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    }
+  ],
+  "aliases": [
+    {
+      "id": "a-m-yoshimune-2003-0",
+      "machineId": "m-yoshimune-2003",
+      "name": "初代吉宗",
+      "normalized": "初代吉宗",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-yoshimune-2003-1",
+      "machineId": "m-yoshimune-2003",
+      "name": "4号機吉宗",
+      "normalized": "4号機吉宗",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-yoshimune-2003-2",
+      "machineId": "m-yoshimune-2003",
+      "name": "吉宗4号機",
+      "normalized": "吉宗4号機",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-yoshimune-2003-3",
+      "machineId": "m-yoshimune-2003",
+      "name": "初代の吉宗",
+      "normalized": "初代ノ吉宗",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-yoshimune-2003-4",
+      "machineId": "m-yoshimune-2003",
+      "name": "よしむね",
+      "normalized": "ヨシムネ",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-monkey-2011-0",
+      "machineId": "m-monkey-2011",
+      "name": "モンキーターン",
+      "normalized": "モンキーターン",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-monkey-2011-1",
+      "machineId": "m-monkey-2011",
+      "name": "初代モンキーターン",
+      "normalized": "初代モンキーターン",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-monkey-2011-2",
+      "machineId": "m-monkey-2011",
+      "name": "もんきーたーん",
+      "normalized": "モンキーターン",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyu2-2008-0",
+      "machineId": "m-fuyu2-2008",
+      "name": "冬ソナ2",
+      "normalized": "冬ソナ2",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyu2-2008-1",
+      "machineId": "m-fuyu2-2008",
+      "name": "冬ソナ",
+      "normalized": "冬ソナ",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyu2-2008-2",
+      "machineId": "m-fuyu2-2008",
+      "name": "ふゆそな2",
+      "normalized": "フユソナ2",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyu2sweet-2008-0",
+      "machineId": "m-fuyu2sweet-2008",
+      "name": "冬ソナ2甘",
+      "normalized": "冬ソナ2甘",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyu2sweet-2008-1",
+      "machineId": "m-fuyu2sweet-2008",
+      "name": "冬ソナ",
+      "normalized": "冬ソナ",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyu2sweet-2008-2",
+      "machineId": "m-fuyu2sweet-2008",
+      "name": "冬ソナ2スイート",
+      "normalized": "冬ソナ2スイート",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyufinal-2013-0",
+      "machineId": "m-fuyufinal-2013",
+      "name": "冬ソナファイナル",
+      "normalized": "冬ソナファイナル",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyufinal-2013-1",
+      "machineId": "m-fuyufinal-2013",
+      "name": "冬ソナ",
+      "normalized": "冬ソナ",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyumemory-2025-0",
+      "machineId": "m-fuyumemory-2025",
+      "name": "冬ソナマイメモリー",
+      "normalized": "冬ソナマイメモリー",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyumemory-2025-1",
+      "machineId": "m-fuyumemory-2025",
+      "name": "冬ソナ",
+      "normalized": "冬ソナ",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyumemorysweet-2025-0",
+      "machineId": "m-fuyumemorysweet-2025",
+      "name": "冬ソナマイメモリー甘",
+      "normalized": "冬ソナマイメモリー甘",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-fuyumemorysweet-2025-1",
+      "machineId": "m-fuyumemorysweet-2025",
+      "name": "冬ソナ",
+      "normalized": "冬ソナ",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-azurlane-slot-2025-0",
+      "machineId": "m-azurlane-slot-2025",
+      "name": "アズールレーンスロット",
+      "normalized": "アズールレーンスロット",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-azurlane-slot-2025-1",
+      "machineId": "m-azurlane-slot-2025",
+      "name": "アズレンスロット",
+      "normalized": "アズレンスロット",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-azurlane-slot-2025-2",
+      "machineId": "m-azurlane-slot-2025",
+      "name": "アズレン",
+      "normalized": "アズレン",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-yoshimune-rising-0",
+      "machineId": "m-yoshimune-rising",
+      "name": "吉宗ライジング",
+      "normalized": "吉宗ライジング",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-yoshimune-rising-1",
+      "machineId": "m-yoshimune-rising",
+      "name": "吉宗",
+      "normalized": "吉宗",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-monkey4-2020-0",
+      "machineId": "m-monkey4-2020",
+      "name": "モンキーターン4",
+      "normalized": "モンキーターン4",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-monkey4-2020-1",
+      "machineId": "m-monkey4-2020",
+      "name": "モンキー4",
+      "normalized": "モンキー4",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    },
+    {
+      "id": "a-m-monkey4-2020-2",
+      "machineId": "m-monkey4-2020",
+      "name": "モンキーターン",
+      "normalized": "モンキーターン",
+      "status": "active",
+      "updatedAt": "2026-10-16T00:00:00.000Z"
+    }
+  ]
+};
