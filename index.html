@@ -7,19 +7,98 @@
   <meta name="description" content="あの頃、夢中になった一台。歴代推し台の思い出を重ねる参加型コンテンツ。">
   <title>あなたの歴代推し台は？</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="memory-loading.css?v=20261019">
+  <link rel="stylesheet" href="memory-loading.css?v=20261019b">
   <script defer src="config.js"></script>
   <script defer src="data/seed.js"></script>
   <script defer src="api.js"></script>
   <script defer src="search-fast.js?v=20261019"></script>
-  <script defer src="memory-loading.js?v=20261019"></script>
+  <script defer src="memory-loading.js?v=20261019b"></script>
   <script defer src="app.js?v=20261019"></script>
 </head>
 <body>
 
-<header><a class="brand" href="./"><span class="brand-icon" aria-hidden="true">✳</span> おもいで台帳 <small>歴代推し台 共感プロジェクト</small></a><span class="pill">思い出でつながる</span></header>
-<main><div id="demoNotice" class="notice" hidden>デモモード · この端末内だけに保存される検証データです</div><section class="hero"><div class="eyebrow">あの一台の話を、もういちど。</div><h1>あなたの<br>歴代<span>推し台</span>は？</h1><p class="lead">あの頃、夢中になった一台。<br>あなたと同じ思い出を持つ仲間が<br class="mobile">いるかもしれません。</p><div class="memory-art" aria-hidden="true"><div class="ticket t1"><small>MY MEMORIES</small><strong>あの頃の一台</strong><span>ずっと、覚えている。</span><i>✳</i></div><div class="ticket t2"><small>OUR MEMORIES</small><strong>同じ思い出、見つけた。</strong><span>あなたの記憶が、誰かと重なる。</span></div><div class="stamp">おもいで<br>保管中</div></div><div class="hero-actions"><button class="primary" id="startButton">思い出の機種を登録する <span>↗</span></button><button class="secondary" id="checkButton">前回登録した機種を確認する</button></div><div class="stats"><div><strong id="participants">—</strong><span>これまでの参加者</span></div><div><strong id="machineCount">—</strong><span>思い出が寄せられた機種</span></div></div><p class="fine">人数は匿名ID単位の集計です。同じ端末・ブラウザで、またお越しください。</p></section>
-<section class="panel" id="entry" hidden aria-labelledby="entryTitle"><div class="eyebrow">01 / 思い出を選ぶ</div><h2 id="entryTitle">あなたの思い出の機種を<br>教えてください</h2><p>1機種からで大丈夫。名前の一部や、愛称でも探せます。</p><div id="slots"></div><button class="add" id="addButton">＋ もう1機種追加する</button><p class="fine">一度に3機種まで。入力した順番で、思い出を記録します。<br>後日、別の機種を追加することもできます。</p><button class="primary" id="submitButton">思い出を登録する</button><button class="text-button" id="cancelButton">また今度にする</button></section>
-<section class="panel" id="results" hidden aria-labelledby="resultTitle"><div class="eyebrow">02 / つながった思い出</div><h2 id="resultTitle">あの一台を覚えている<br>仲間がいます。</h2><p id="resultIntro"></p><div id="cards"></div><div id="pending"></div><div id="matches"></div><button class="secondary" id="moreButton">ほかの思い出も追加する</button><p class="fine">数字は同じ匿名IDの重複を抑えた集計です。確認待ちの機種は含みません。</p></section>
-<div id="status" role="status" aria-live="polite"></div><button id="retryButton" class="secondary" hidden>同じ操作を再試行する</button><section class="about"><span>小さな記憶が、みんなの台帳に。</span><p>昔の一台も、最近出会った一台も。<br>ここは、思い出と共感を重ねる場所です。<br>名前や電話番号の入力は必要ありません。</p></section></main><footer>おもいで台帳 <span>ブラウザのデータ削除・端末変更による登録情報の復元は保証していません。</span></footer>
-</body></html>
+<header>
+  <a class="brand" href="./"><span class="brand-icon" aria-hidden="true">✳</span> おもいで台帳 <small>歴代推し台 共感プロジェクト</small></a>
+  <span class="pill">思い出でつながる</span>
+</header>
+
+<main>
+  <div id="demoNotice" class="notice" hidden>デモモード · この端末内だけに保存される検証データです</div>
+
+  <section class="hero">
+    <div class="eyebrow">あの一台の話を、もういちど。</div>
+    <h1>あなたの<br>歴代<span>推し台</span>は？</h1>
+    <p class="lead">あの頃、夢中になった一台。<br>あなたと同じ思い出を持つ仲間が<br class="mobile">いるかもしれません。</p>
+
+    <div class="memory-art" aria-hidden="true">
+      <div class="ticket t1">
+        <small>MY MEMORIES</small>
+        <strong>あの頃の一台</strong>
+        <span>ずっと、覚えている。</span>
+        <i>✳</i>
+      </div>
+      <div class="ticket t2">
+        <small>OUR MEMORIES</small>
+        <strong>同じ思い出、見つけた。</strong>
+        <span>あなたの記憶が、誰かと重なる。</span>
+      </div>
+      <div class="stamp">おもいで<br>保管中</div>
+    </div>
+
+    <div class="hero-actions">
+      <button class="primary" id="startButton">思い出の機種を登録する <span>↗</span></button>
+      <button class="secondary" id="checkButton">前回登録した機種を確認する</button>
+    </div>
+
+    <div class="stats">
+      <div>
+        <strong id="participants">—</strong>
+        <span>これまでの参加者</span>
+      </div>
+      <div>
+        <strong id="machineCount">—</strong>
+        <span>思い出が寄せられた機種</span>
+      </div>
+    </div>
+
+    <p class="fine">人数は匿名ID単位の集計です。同じ端末・ブラウザで、またお越しください。</p>
+  </section>
+
+  <section class="panel" id="entry" hidden aria-labelledby="entryTitle">
+    <div class="eyebrow">01 / 思い出を選ぶ</div>
+    <h2 id="entryTitle">あなたの思い出の機種を<br>教えてください</h2>
+    <p>1機種からで大丈夫。名前の一部や、愛称でも探せます。</p>
+    <div id="slots"></div>
+    <button class="add" id="addButton">＋ もう1機種追加する</button>
+    <p class="fine">一度に3機種まで。入力した順番で、思い出を記録します。<br>後日、別の機種を追加することもできます。</p>
+    <button class="primary" id="submitButton">思い出を登録する</button>
+    <button class="text-button" id="cancelButton">また今度にする</button>
+  </section>
+
+  <section class="panel" id="results" hidden aria-labelledby="resultTitle">
+    <div class="eyebrow">02 / つながった思い出</div>
+    <h2 id="resultTitle">あの一台を覚えている<br>仲間がいます。</h2>
+    <p id="resultIntro"></p>
+    <div id="cards"></div>
+    <div id="pending"></div>
+    <div id="matches"></div>
+    <button class="secondary" id="moreButton">ほかの思い出も追加する</button>
+    <p class="fine">数字は同じ匿名IDの重複を抑えた集計です。確認待ちの機種は含みません。</p>
+  </section>
+
+  <div id="status" role="status" aria-live="polite"></div>
+  <button id="retryButton" class="secondary" hidden>同じ操作を再試行する</button>
+
+  <section class="about">
+    <span>小さな記憶が、みんなの台帳に。</span>
+    <p>昔の一台も、最近出会った一台も。<br>ここは、思い出と共感を重ねる場所です。<br>名前や電話番号の入力は必要ありません。</p>
+  </section>
+</main>
+
+<footer>
+  おもいで台帳
+  <span>ブラウザのデータ削除・端末変更による登録情報の復元は保証していません。</span>
+</footer>
+
+</body>
+</html>
