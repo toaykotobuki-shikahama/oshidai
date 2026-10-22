@@ -4,6 +4,7 @@
  const base=window.OshidaiAPI;if(!base)return;
  const request=base.request.bind(base);let catalog=null,loading=null;
  const norm=s=>String(s||'').normalize('NFKC').toLowerCase().replace(/[ぁ-ゖ]/g,c=>String.fromCharCode(c.charCodeAt(0)+96)).replace(/[\s・･「」『』()（）\-_:：!！?？]/g,'');
+ const numeric=s=>s.replace(/[〇零一二三四五六七八九]/g,c=>String('〇一二三四五六七八九'.indexOf(c==='零'?'〇':c)));
  function distance(a,b){let p=Array.from({length:b.length+1},(_,i)=>i);for(let i=1;i<=a.length;i++){const next=[i];for(let j=1;j<=b.length;j++)next[j]=Math.min(next[j-1]+1,p[j]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=next;}return p[b.length];}
  function load(){if(catalog)return Promise.resolve(catalog);if(loading)return loading;
   loading=request('catalog').then(data=>{if(data.version!==1||!Array.isArray(data.items)||data.items.some(m=>!m.id||!m.name||!Array.isArray(m.names)))throw Error('INVALID_CATALOG');
@@ -11,7 +12,7 @@
   }).finally(()=>{loading=null;});return loading;
  }
  function search(items,query){const q=norm(query),found=[];if(!q)return {items:[],query:q};
-  for(const m of items){let score=0,kind='partial';for(const s of m.names){let v=0,k='partial';if(s===q){v=100;k='exact';}else if(s.includes(q))v=80;else if(q.length>=3&&s.length<=q.length+8){const d=distance(q,s),ratio=1-d/Math.max(q.length,s.length);if(d<=2&&ratio>=.55){v=ratio*60;k='fuzzy';}}if(v>score){score=v;kind=k;}if(score===100)break;}if(score)found.push({id:m.id,name:m.name,type:m.type,era:m.era,kind,score});}
+  for(const m of items){let score=0,kind='partial';for(const s of m.names){let v=0,k='partial';if(s===q){v=100;k='exact';}else if(s.includes(q))v=80;else if(numeric(s).includes(numeric(q))){v=70;k='variant';}else if(q.length>=3&&s.length<=q.length+8){const d=distance(q,s),ratio=1-d/Math.max(q.length,s.length);if(d<=2&&ratio>=.55){v=ratio*60;k='fuzzy';}}if(v>score){score=v;kind=k;}if(score===100)break;}if(score)found.push({id:m.id,name:m.name,type:m.type,era:m.era,kind,score});}
   found.sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name,'ja'));
   return {items:found.slice(0,8).map(({score,...m})=>m),query:q};
  }
