@@ -36,14 +36,27 @@
 
 .memory-loading--reduced .memory-loading__card{will-change:auto}
 
-/* Gentle waiting light; scoped to the book and active only after the last card. */
-.memory-loading--motion.memory-loading--settled .memory-loading__book{animation:memory-book-breathe 3.8s ease-in-out infinite}
-.memory-loading--motion.memory-loading--settled .memory-loading__cover::before{border-color:#efd99b;box-shadow:0 0 12px 3px #ebc87555,inset 0 0 10px #f5dfaa44}
-.memory-loading__spark{position:absolute;left:calc(50% + (var(--spark-index) - 1)*100px);top:calc(330px - var(--spark-index)*22px);width:4px;height:4px;border-radius:50%;background:#eacb83;box-shadow:0 0 7px #e9c673;opacity:0;pointer-events:none}
-.memory-loading--motion.memory-loading--settled .memory-loading__spark{animation:memory-spark 3.8s calc(var(--spark-index)*.9s) ease-in-out infinite}
-.memory-loading--finishing .memory-loading__book,.memory-loading--finishing .memory-loading__cover::before,.memory-loading--finishing .memory-loading__spark{animation:none!important;opacity:0;transition:opacity .22s ease,transform .22s ease}
-.memory-loading--finishing .memory-loading__book{opacity:1;box-shadow:0 5px 9px #18372d18}
-.memory-loading--finishing .memory-loading__cover::before,.memory-loading--finishing .memory-loading__spark{transform:scale(.8)}
+/* Ver.2: adjustable light, contained within the book stage. */
+.memory-loading{--glow-strength:.85;--glow-spread:32px;--glow-cycle:1.8s;--spark-opacity:.8}
+.memory-loading--motion.memory-loading--settled .memory-loading__book{animation:memory-glow-arrive .3s ease-out both,memory-book-breathe var(--glow-cycle) .3s ease-in-out infinite}
+.memory-loading--motion.memory-loading--settled .memory-loading__cover::before{border-color:#ffe4a0;animation:memory-cover-arrive .3s ease-out both,memory-cover-breathe var(--glow-cycle) .3s ease-in-out infinite}
+.memory-loading__spark{position:absolute;left:calc(50% + var(--spark-x));top:calc(353px + var(--spark-y));width:5px;height:5px;border-radius:50%;background:#fff0bc;box-shadow:0 0 9px 2px #f5c45b;opacity:0;pointer-events:none}
+.memory-loading__spark:nth-of-type(1){--spark-x:-112px;--spark-y:5px;--spark-delay:0s}
+.memory-loading__spark:nth-of-type(2){--spark-x:-82px;--spark-y:-54px;--spark-delay:.35s}
+.memory-loading__spark:nth-of-type(3){--spark-x:-35px;--spark-y:55px;--spark-delay:.7s}
+.memory-loading__spark:nth-of-type(4){--spark-x:38px;--spark-y:-60px;--spark-delay:1.05s}
+.memory-loading__spark:nth-of-type(5){--spark-x:85px;--spark-y:48px;--spark-delay:1.4s}
+.memory-loading__spark:nth-of-type(6){--spark-x:110px;--spark-y:-7px;--spark-delay:1.75s}
+.memory-loading--motion.memory-loading--settled .memory-loading__spark{animation:memory-spark 2.4s var(--spark-delay) ease-in-out infinite}
+.memory-loading--finishing .memory-loading__book{animation:memory-converge .24s ease-in both!important}
+.memory-loading--finishing .memory-loading__cover::before{animation:memory-cover-converge .24s ease-in both!important}
+.memory-loading--finishing .memory-loading__spark{animation:memory-spark-converge .24s ease-in both!important}
 .memory-loading__card--finish{transition:transform .22s ease-in,opacity .22s ease-in;transform:translate3d(-50%,260px,0) scale(.6)!important;opacity:0!important}
-@keyframes memory-book-breathe{0%,100%{box-shadow:0 5px 9px #18372d18,0 0 5px #e9c97822}50%{box-shadow:0 5px 9px #18372d18,0 0 23px 5px #e9c97866}}
-@keyframes memory-spark{0%,100%{opacity:0;transform:translateY(4px) scale(.7)}45%{opacity:.6}75%{opacity:0;transform:translateY(-18px) scale(1)}}
+@keyframes memory-glow-arrive{from{box-shadow:0 5px 9px #18372d18,0 0 2px #e9c97800}to{box-shadow:0 5px 9px #18372d18,0 0 var(--glow-spread) 9px rgb(255 198 69 / var(--glow-strength))}}
+@keyframes memory-book-breathe{0%,100%{box-shadow:0 5px 9px #18372d18,0 0 12px 3px rgb(241 183 67 / .35)}50%{box-shadow:0 5px 9px #18372d18,0 0 var(--glow-spread) 8px rgb(255 198 69 / var(--glow-strength))}}
+@keyframes memory-cover-arrive{from{opacity:0}to{opacity:1;box-shadow:0 0 17px 4px #f6cd69aa,inset 0 0 22px #f7d77d99}}
+@keyframes memory-cover-breathe{0%,100%{opacity:.4;box-shadow:0 0 8px 2px #f2ca7480,inset 0 0 10px #f7d77d55}50%{opacity:1;box-shadow:0 0 17px 4px #f6cd69aa,inset 0 0 22px #f7d77d99}}
+@keyframes memory-spark{0%,100%{opacity:0;transform:translateY(5px) scale(.6)}40%{opacity:var(--spark-opacity)}85%{opacity:0;transform:translateY(-19px) scale(1)}}
+@keyframes memory-converge{0%{box-shadow:0 5px 9px #18372d18,0 0 var(--glow-spread) 8px rgb(255 198 69 / var(--glow-strength))}75%{box-shadow:0 5px 9px #18372d18,0 0 7px 2px #ffe8a6}100%{box-shadow:0 5px 9px #18372d18}}
+@keyframes memory-cover-converge{0%{opacity:1;transform:scale(1);box-shadow:inset 0 0 25px #ffe9a6aa}75%{opacity:1;transform:scale(.12);background:#fff0be;box-shadow:0 0 14px 5px #ffe5a3}100%{opacity:0;transform:scale(.04)}}
+@keyframes memory-spark-converge{0%{opacity:var(--spark-opacity)}100%{opacity:0;transform:translate(calc(-1 * var(--spark-x)),calc(-1 * var(--spark-y))) scale(.3)}}
