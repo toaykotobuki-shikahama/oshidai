@@ -33,7 +33,7 @@
   book.append(el('div','memory-loading__pages'));
   const cover=el('div','memory-loading__cover');cover.append(el('span','memory-loading__mark','✳'),el('strong','','おもいで台帳'),el('span','memory-loading__cover-note','あの一台を、ずっと。'));book.append(cover);
   stage.append(book);
-  for(let i=0;i<3;i++){const spark=el('span','memory-loading__spark');spark.style.setProperty('--spark-index',i);stage.append(spark);}
+  for(let i=0;i<6;i++){const spark=el('span','memory-loading__spark');spark.style.setProperty('--spark-index',i);stage.append(spark);}
   const names=namesFor(items);if(!names.length)names.push('思い出の一台');
   names.forEach((name,i)=>{
    const card=el('div','memory-loading__card');card.style.setProperty('--card-y',(i*80)+'px');card.style.setProperty('--card-delay',(i*1.3)+'s');card.style.setProperty('--card-tilt',((i-1)*3)+'deg');card.append(el('span','memory-loading__card-kicker','MY MEMORY'),el('strong','memory-loading__card-name',name),el('span','memory-loading__card-footer','ずっと、覚えている。'));stage.append(card);
@@ -87,5 +87,5 @@
   let state;try{state=open(payload.items);}catch(ignore){if(current){state=current;close(state);state=null;}}
   try{const result=await request(action,payload);if(state){try{await state.finish();}catch(ignore){}}return result;}finally{close(state);}
  }});
- window.OshidaiMemoryLoading={version:3};
+ window.OshidaiMemoryLoading={version:4};
 })();
