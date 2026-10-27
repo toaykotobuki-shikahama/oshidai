@@ -33,6 +33,7 @@
   book.append(el('div','memory-loading__pages'));
   const cover=el('div','memory-loading__cover');cover.append(el('span','memory-loading__mark','✳'),el('strong','','おもいで台帳'),el('span','memory-loading__cover-note','あの一台を、ずっと。'));book.append(cover);
   stage.append(book);
+  for(let i=0;i<3;i++){const spark=el('span','memory-loading__spark');spark.style.setProperty('--spark-index',i);stage.append(spark);}
   const names=namesFor(items);if(!names.length)names.push('思い出の一台');
   names.forEach((name,i)=>{
    const card=el('div','memory-loading__card');card.style.setProperty('--card-y',(i*80)+'px');card.style.setProperty('--card-delay',(i*1.3)+'s');card.style.setProperty('--card-tilt',((i-1)*3)+'deg');card.append(el('span','memory-loading__card-kicker','MY MEMORY'),el('strong','memory-loading__card-name',name),el('span','memory-loading__card-footer','ずっと、覚えている。'));stage.append(card);
@@ -53,11 +54,25 @@
    dialog.classList.toggle('memory-loading--motion',animated);
    dialog.classList.remove('memory-loading--settled');
    toggle.textContent=animated?'カード演出をOFF':'カード演出をON';toggle.setAttribute('aria-pressed',String(animated));
-   if(animated){settleTimer=setTimeout(()=>{if(current===state)dialog.classList.add('memory-loading--settled');},Math.round((5.6+(names.length-1)*1.3+.3)*1000));state.timers.push(settleTimer);}
+   if(animated){settleTimer=setTimeout(()=>{if(current===state)dialog.classList.add('memory-loading--settled');},Math.round((5.6+(names.length-1)*1.3)*1000));state.timers.push(settleTimer);}
   }
   toggle.addEventListener('click',()=>{animated=!animated;rememberAnimation(animated);applyMotion();});
   applyMotion();
   state.timers.push(setTimeout(()=>{if(current===state)status.textContent='記録の完了を待っています。もう少しお待ちください。';},18000));
+  state.finish=()=>{
+   if(current!==state||!animated)return Promise.resolve();
+   if(settleTimer!==null)clearTimeout(settleTimer);
+   toggle.disabled=true;
+   // A fast response finishes the in-flight cards briefly instead of waiting for their full sequence.
+   if(!dialog.classList.contains('memory-loading--settled')){
+    dialog.querySelectorAll('.memory-loading__card').forEach(card=>{
+     const style=getComputedStyle(card);card.style.transform=style.transform;card.style.opacity=style.opacity;
+     card.style.animation='none';void card.offsetWidth;card.classList.add('memory-loading__card--finish');
+    });
+   }
+   dialog.classList.add('memory-loading--finishing');
+   return new Promise(resolve=>{state.timers.push(setTimeout(resolve,240));});
+  };
   return state;
  }
  function close(state){
@@ -70,7 +85,7 @@
   if(action!=='register')return request(action,payload);
   // Presentation failures never prevent the actual save request or change its outcome.
   let state;try{state=open(payload.items);}catch(ignore){if(current){state=current;close(state);state=null;}}
-  try{return await request(action,payload);}finally{close(state);}
+  try{const result=await request(action,payload);if(state){try{await state.finish();}catch(ignore){}}return result;}finally{close(state);}
  }});
- window.OshidaiMemoryLoading={version:2};
+ window.OshidaiMemoryLoading={version:3};
 })();
