@@ -35,3 +35,15 @@
 .memory-loading__toggle:focus-visible{outline:3px solid #236858;outline-offset:4px}
 
 .memory-loading--reduced .memory-loading__card{will-change:auto}
+
+/* Gentle waiting light; scoped to the book and active only after the last card. */
+.memory-loading--motion.memory-loading--settled .memory-loading__book{animation:memory-book-breathe 3.8s ease-in-out infinite}
+.memory-loading--motion.memory-loading--settled .memory-loading__cover::before{border-color:#efd99b;box-shadow:0 0 12px 3px #ebc87555,inset 0 0 10px #f5dfaa44}
+.memory-loading__spark{position:absolute;left:calc(50% + (var(--spark-index) - 1)*100px);top:calc(330px - var(--spark-index)*22px);width:4px;height:4px;border-radius:50%;background:#eacb83;box-shadow:0 0 7px #e9c673;opacity:0;pointer-events:none}
+.memory-loading--motion.memory-loading--settled .memory-loading__spark{animation:memory-spark 3.8s calc(var(--spark-index)*.9s) ease-in-out infinite}
+.memory-loading--finishing .memory-loading__book,.memory-loading--finishing .memory-loading__cover::before,.memory-loading--finishing .memory-loading__spark{animation:none!important;opacity:0;transition:opacity .22s ease,transform .22s ease}
+.memory-loading--finishing .memory-loading__book{opacity:1;box-shadow:0 5px 9px #18372d18}
+.memory-loading--finishing .memory-loading__cover::before,.memory-loading--finishing .memory-loading__spark{transform:scale(.8)}
+.memory-loading__card--finish{transition:transform .22s ease-in,opacity .22s ease-in;transform:translate3d(-50%,260px,0) scale(.6)!important;opacity:0!important}
+@keyframes memory-book-breathe{0%,100%{box-shadow:0 5px 9px #18372d18,0 0 5px #e9c97822}50%{box-shadow:0 5px 9px #18372d18,0 0 23px 5px #e9c97866}}
+@keyframes memory-spark{0%,100%{opacity:0;transform:translateY(4px) scale(.7)}45%{opacity:.6}75%{opacity:0;transform:translateY(-18px) scale(1)}}
